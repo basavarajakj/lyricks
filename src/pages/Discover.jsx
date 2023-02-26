@@ -38,13 +38,12 @@ const Discover = () => {
 					))}
 				</select>
 			</div>
-			<div className="flex flex-wrap sm:justify-start justify-center gap-8">
+			<div className="grid place-items-center md:grid-cols-2 2xl:grid-cols-4 3xl:grid-cols-6  gap-8">
 				{data?.map((song, i) => (
 					<SongCard
 						key={song.key}
 						song={song}
 						isPlaying={isPlaying}
-						activeSong={activeSong}
 						data={data}
 						i={i}
 					/>

@@ -16,7 +16,9 @@ const AroundYou = () => {
 	useEffect(() => {
 		axios
 			.get(
-				`https://geo.ipify.org/api/v2/country?apiKey=at_S3kcRQps98KbRhcFWi6B3FIvo0O7z`
+				`https://geo.ipify.org/api/v2/country?apiKey=${
+					import.meta.env.VITE_GEO_API_KEY
+				}`
 			)
 			.then(res => setCountry(res?.data?.location?.country))
 			.catch(err => console.log(err))
@@ -33,7 +35,7 @@ const AroundYou = () => {
 				Around you
 				<span className="from-bold"> {country}</span>
 			</h2>
-			<div className="flex flex-wrap sm:justify-start justify-center gap-8">
+			<div className="grid place-items-center md:grid-cols-2 2xl:grid-cols-4 3xl:grid-cols-6  gap-8">
 				{data?.map((song, i) => (
 					<SongCard
 						key={song.key}

@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const DetailsHeader = ({ artistId, artistData, songData }) => {
 	const artist = artistData?.artists[artistId]?.attributes;
 	return (
-		<div className="relative w-full flex flex-col">
+		<div className="relative w-full flex flex-col mb-10">
 			<div className="w-full bg-gradient-to-l from-transparent to-black sm:h-48 h-28" />
-			<div className="absolute inset-0 flex items-center">
+			<div className="absolute flex items-center">
 				<img
 					src={
 						artistId
@@ -23,7 +23,9 @@ const DetailsHeader = ({ artistId, artistData, songData }) => {
 					</p>
 					{!artistId && (
 						<Link to={`/artists/${songData?.artists[0].adamid}`}>
-							<p className="text-xl text-gray-400 mt-2">{songData?.subtitle}</p>
+							<p className="text-xl text-gray-400 mt-2 truncate">
+								{songData?.subtitle.slice(0, 20)}
+							</p>
 						</Link>
 					)}
 					<p className="text-base text-gray-400 mt-2">
@@ -31,7 +33,7 @@ const DetailsHeader = ({ artistId, artistData, songData }) => {
 					</p>
 				</div>
 			</div>
-			<div className="w-full sm:h-44 h-24" />
+			{/* <div className="w-full sm:h-44 h-24" /> */}
 		</div>
 	);
 };
